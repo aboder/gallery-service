@@ -22,4 +22,4 @@
 |--------| ----------- |
 | imageUrl | String |
 | description | String |
-|verified| boolean
+| verified | boolean |
