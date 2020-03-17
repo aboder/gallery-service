@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const roomSchema = new mongoose.Schema({
   roomId: Number,
-  pictures: Array,
+  pictures: [{ imageUrl: String, description: String, verified: Boolean }],
 });
 
 const Room = mongoose.model('Room', roomSchema);
