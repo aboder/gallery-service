@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Pane from './Pane';
 import PaneColumn from './PaneColumn';
 import './galleryStyles.css';
@@ -30,37 +31,49 @@ class Gallery extends Component {
 
   render() {
     const { pictures, photoBeingHovered, hoveredPhotoIndex } = this.state;
-    return (
-      <div className="gallery">
-        <Pane
-          className="main"
-          imageUrl="https://picsum.photos/id/237/200/300"
-          index={0}
-          isMain
-          photoBeingHovered={photoBeingHovered}
-          hoveredPhotoIndex={hoveredPhotoIndex}
-          handleOnHover={this.handleOnHover}
-          handleOffHover={this.handleOffHover}
-        />
-        <PaneColumn
-          className="col1"
-          col={1}
-          photoBeingHovered={photoBeingHovered}
-          hoveredPhotoIndex={hoveredPhotoIndex}
-          handleOnHover={this.handleOnHover}
-          handleOffHover={this.handleOffHover}
-        />
-        <PaneColumn
-          className="col2"
-          col={2}
-          photoBeingHovered={photoBeingHovered}
-          hoveredPhotoIndex={hoveredPhotoIndex}
-          handleOnHover={this.handleOnHover}
-          handleOffHover={this.handleOffHover}
-        />
-      </div>
-    );
+    const { toggleModal, showModal } = this.props;
+    if (!showModal) {
+      return (
+        <div className="gallery">
+          <Pane
+            className="main"
+            toggleModal={toggleModal}
+            imageUrl="https://picsum.photos/id/237/200/300"
+            index={0}
+            isMain
+            photoBeingHovered={photoBeingHovered}
+            hoveredPhotoIndex={hoveredPhotoIndex}
+            handleOnHover={this.handleOnHover}
+            handleOffHover={this.handleOffHover}
+          />
+          <PaneColumn
+            className="col1"
+            col={1}
+            toggleModal={toggleModal}
+            photoBeingHovered={photoBeingHovered}
+            hoveredPhotoIndex={hoveredPhotoIndex}
+            handleOnHover={this.handleOnHover}
+            handleOffHover={this.handleOffHover}
+          />
+          <PaneColumn
+            className="col2"
+            col={2}
+            toggleModal={toggleModal}
+            photoBeingHovered={photoBeingHovered}
+            hoveredPhotoIndex={hoveredPhotoIndex}
+            handleOnHover={this.handleOnHover}
+            handleOffHover={this.handleOffHover}
+          />
+        </div>
+      );
+    }
+    return null;
   }
 }
+
+Gallery.propTypes = {
+  toggleModal: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
+};
 
 export default Gallery;

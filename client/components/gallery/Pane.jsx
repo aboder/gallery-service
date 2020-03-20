@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import './paneStyles.css';
 
 const Pane = ({
-  imageUrl, index, isMain, photoBeingHovered, hoveredPhotoIndex, handleOnHover, handleOffHover,
+  imageUrl, toggleModal, index, isMain, photoBeingHovered, hoveredPhotoIndex, handleOnHover,
+  handleOffHover,
 }) => {
   let classes = 'pane';
   if (isMain) {
@@ -22,7 +23,15 @@ const Pane = ({
         handleOffHover();
       }}
     >
-      <img className="image" src={imageUrl} alt="" />
+      <input
+        onClick={() => {
+          toggleModal(true);
+        }}
+        type="image"
+        className="image"
+        src={imageUrl}
+        alt=""
+      />
     </div>
   );
 };
@@ -35,6 +44,7 @@ Pane.propTypes = {
   hoveredPhotoIndex: PropTypes.number.isRequired,
   handleOnHover: PropTypes.func.isRequired,
   handleOffHover: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
 
 Pane.defaultProps = {
