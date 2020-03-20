@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import axios from 'axios'
 import Gallery from './gallery/Gallery';
 import Modal from './modal/Modal';
 
@@ -10,6 +12,13 @@ class App extends Component {
       showModal: false,
     };
     this.toggleModal = this.toggleModal.bind(this);
+  }
+
+  componentDidMount() {
+    const { roomId } = this.props;
+    axios.get(`/api/gallery/pictures/${roomId}`)
+      .then(console.log)
+      .catch(console.error);
   }
 
   toggleModal(value) {
@@ -28,4 +37,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  roomId: PropTypes.number.isRequired,
+};
+
 export default App;

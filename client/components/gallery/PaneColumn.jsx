@@ -54,13 +54,17 @@ const PaneColumn = ({
 };
 
 PaneColumn.propTypes = {
-  pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.object),
   col: PropTypes.number.isRequired,
   photoBeingHovered: PropTypes.bool.isRequired,
   hoveredPhotoIndex: PropTypes.number.isRequired,
   handleOnHover: PropTypes.func.isRequired,
   handleOffHover: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
+};
+
+PaneColumn.defaultProps = {
+  pictures: [],
 };
 
 export default PaneColumn;
