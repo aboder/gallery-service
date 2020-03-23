@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import axios from 'axios'
+import axios from 'axios';
 import Gallery from './gallery/Gallery';
 import Modal from './modal/Modal';
 
@@ -16,8 +16,12 @@ class App extends Component {
 
   componentDidMount() {
     const { roomId } = this.props;
-    axios.get(`/api/gallery/pictures/${roomId}`)
-      .then(console.log)
+    axios.get(`/api/gallery/pictures/${roomId}/`)
+      .then((data) => {
+        this.setState({
+          pictures: data.data,
+        });
+      })
       .catch(console.error);
   }
 
@@ -28,18 +32,29 @@ class App extends Component {
   }
 
   render() {
-    const { showModal } = this.state;
+    const { showModal, pictures } = this.state;
+    if (pictures.length === 0) {
+      return (
+        <div>
+          Loading...
+        </div>
+      );
+    }
     return (
       <>
-        <Gallery showModal={showModal} toggleModal={this.toggleModal} />
-        <Modal toggleModal={this.toggleModal} showModal={showModal} />
+        <Gallery pictures={pictures} showModal={showModal} toggleModal={this.toggleModal} />
+        <Modal pictures={pictures} toggleModal={this.toggleModal} showModal={showModal} />
       </>
     );
   }
 }
 
 App.propTypes = {
-  roomId: PropTypes.number.isRequired,
+  roomId: PropTypes.number,
+};
+
+App.defaultProps = {
+  roomId: 0,
 };
 
 export default App;

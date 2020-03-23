@@ -9,7 +9,7 @@ const Carousel = ({ pictures, currentPicture }) => {
       <div className="grid">
         <Slider className="slider" pictures={pictures} currentPicture={currentPicture} />
         <div className="description">
-          Description
+          {pictures[currentPicture].description}
         </div>
       </div>
     </div>
@@ -17,7 +17,7 @@ const Carousel = ({ pictures, currentPicture }) => {
 };
 
 Carousel.propTypes = {
-  pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentPicture: PropTypes.number.isRequired,
 };
 

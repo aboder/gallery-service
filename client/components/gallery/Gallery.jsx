@@ -8,7 +8,6 @@ class Gallery extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pictures: [],
       photoBeingHovered: false,
       hoveredPhotoIndex: 0,
     };
@@ -30,15 +29,15 @@ class Gallery extends Component {
   }
 
   render() {
-    const { pictures, photoBeingHovered, hoveredPhotoIndex } = this.state;
-    const { toggleModal, showModal } = this.props;
+    const { photoBeingHovered, hoveredPhotoIndex } = this.state;
+    const { toggleModal, showModal, pictures } = this.props;
     if (!showModal) {
       return (
         <div className="gallery">
           <Pane
             className="main"
             toggleModal={toggleModal}
-            imageUrl="https://picsum.photos/id/237/200/300"
+            imageUrl={pictures[0].imageUrl}
             index={0}
             isMain
             photoBeingHovered={photoBeingHovered}
@@ -48,6 +47,7 @@ class Gallery extends Component {
           />
           <PaneColumn
             className="col1"
+            pictures={pictures}
             col={1}
             toggleModal={toggleModal}
             photoBeingHovered={photoBeingHovered}
@@ -57,6 +57,7 @@ class Gallery extends Component {
           />
           <PaneColumn
             className="col2"
+            pictures={pictures}
             col={2}
             toggleModal={toggleModal}
             photoBeingHovered={photoBeingHovered}
@@ -74,6 +75,7 @@ class Gallery extends Component {
 Gallery.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   showModal: PropTypes.bool.isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Gallery;

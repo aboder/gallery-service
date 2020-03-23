@@ -17,7 +17,7 @@ const Slider = ({ pictures, currentPicture }) => {
             classes += ' currentPic';
           }
           return (
-            <input key={picture} className={classes} type="image" src={picture} alt="" />
+            <input key={picture.imageUrl} className={classes} type="image" src={picture.imageUrl} alt="" />
           );
         })}
       </div>
@@ -37,7 +37,7 @@ const Slider = ({ pictures, currentPicture }) => {
             classes += ' currentPic';
           }
           return (
-            <input key={picture} className={classes} type="image" src={picture} alt="" />
+            <input key={picture.imageUrl} className={classes} type="image" src={picture.imageUrl} alt="" />
           );
         })}
       </div>
@@ -56,7 +56,7 @@ const Slider = ({ pictures, currentPicture }) => {
           classes += ' currentPic';
         }
         return (
-          <input key={picture} className={classes} type="image" src={picture} alt="" />
+          <input key={picture.imageUrl} className={classes} type="image" src={picture.imageUrl} alt="" />
         );
       })}
     </div>
@@ -64,7 +64,7 @@ const Slider = ({ pictures, currentPicture }) => {
 };
 
 Slider.propTypes = {
-  pictures: PropTypes.arrayOf(PropTypes.string).isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
   currentPicture: PropTypes.number.isRequired,
 };
 

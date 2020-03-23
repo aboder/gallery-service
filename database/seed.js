@@ -26,7 +26,7 @@ for (let i = 0; i < 100; i += 1) {
   const samplePics = [];
   for (let j = 0; j < 7 + Math.floor(Math.random() * 10); j += 1) {
     const samplePic = {
-      imageUrl: `https://airtreentreerooms.s3-us-west-1.amazonaws.com/picutre${lastPic}.jpg`,
+      imageUrl: `https://picsum.photos/id/${lastPic}/900/900`,
       description: faker.lorem.sentence(7),
       verified: lastVerified,
     };

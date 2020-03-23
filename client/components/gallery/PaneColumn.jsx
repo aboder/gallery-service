@@ -9,7 +9,7 @@ const PaneColumn = ({
     return (
       <div className="column">
         <Pane
-          imageUrl="https://i.picsum.photos/id/866/700/300.jpg"
+          imageUrl={pictures[1].imageUrl}
           toggleModal={toggleModal}
           index={1}
           photoBeingHovered={photoBeingHovered}
@@ -18,7 +18,7 @@ const PaneColumn = ({
           handleOffHover={handleOffHover}
         />
         <Pane
-          imageUrl="https://i.picsum.photos/id/846/900/500.jpg"
+          imageUrl={pictures[2].imageUrl}
           toggleModal={toggleModal}
           index={2}
           photoBeingHovered={photoBeingHovered}
@@ -32,7 +32,7 @@ const PaneColumn = ({
   return (
     <div className="column">
       <Pane
-        imageUrl="https://i.picsum.photos/id/866/700/300.jpg"
+        imageUrl={pictures[3].imageUrl}
         toggleModal={toggleModal}
         index={3}
         photoBeingHovered={photoBeingHovered}
@@ -41,7 +41,7 @@ const PaneColumn = ({
         handleOffHover={handleOffHover}
       />
       <Pane
-        imageUrl="https://i.picsum.photos/id/846/900/500.jpg"
+        imageUrl={pictures[4].imageUrl}
         toggleModal={toggleModal}
         index={4}
         photoBeingHovered={photoBeingHovered}

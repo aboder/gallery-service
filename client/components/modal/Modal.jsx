@@ -7,23 +7,12 @@ import Carousel from './Carousel';
 import CloseButton from './CloseButton';
 import './modalStyles.css';
 
-const dummyPics = [
-  'https://picsum.photos/id/238/1000/1000',
-  'https://picsum.photos/id/239/1000/1000',
-  'https://picsum.photos/id/240/1000/1000',
-  'https://picsum.photos/id/241/1000/1000',
-  'https://picsum.photos/id/242/1000/1000',
-  'https://picsum.photos/id/243/1000/1000',
-  'https://picsum.photos/id/244/1000/1000',
-  'https://picsum.photos/id/248/1000/1000',
-  'https://picsum.photos/id/249/1000/1000',
-  'https://picsum.photos/id/247/1000/1000'];
-
 class Modal extends Component {
   constructor(props) {
     super(props);
+    const { pictures } = props;
     this.state = {
-      pictures: dummyPics,
+      pictures,
       currentPicture: 0,
     };
     this.handleRightClick = this.handleRightClick.bind(this);
@@ -62,7 +51,7 @@ class Modal extends Component {
     if (showModal) {
       return (
         <div className="modal">
-          <MainPicture picture={pictures[currentPicture]} />
+          <MainPicture picture={pictures[currentPicture].imageUrl} />
           <LeftArrow handleLeftClick={this.handleLeftClick} />
           <RightArrow handleRightClick={this.handleRightClick} />
           <Carousel pictures={pictures} currentPicture={currentPicture} />
@@ -77,6 +66,7 @@ class Modal extends Component {
 Modal.propTypes = {
   showModal: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  pictures: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Modal;
