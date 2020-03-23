@@ -13,14 +13,30 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
+        include: /client/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-env', '@babel/preset-react'],
+            },
           },
-        },
+        ],
       },
+      {
+        test: /\.css$/i,
+        include: /client/,
+        exclude: /node_modules/,
+        use: [
+          'style-loader', 'css-loader',
+        ],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [
+      '.jsx', '.js', '.css',
     ],
   },
   mode: 'development',

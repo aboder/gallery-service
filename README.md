@@ -4,11 +4,11 @@
 ## API spec
 
 ## Get Room Pictures
--------- 
+--------
 
 `GET /api/gallery/pictures/:roomId`
 
-### Parameters 
+### Parameters
 
 | Field | Type |
 |--------| ----------- |

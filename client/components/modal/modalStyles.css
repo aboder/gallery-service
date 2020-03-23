@@ -1,0 +1,48 @@
+.modal {
+  display: grid;
+  grid-template-columns: 10vw 55vw 10vw 25vw;
+  grid-template-rows: 15vh 85vh;
+  grid-template-areas:
+  ". . . close"
+  "left-arrow main right-arrow carousel";
+}
+
+.mainPic {
+  grid-area: main;
+  border-radius: 2%;
+  opacity: 1;
+  transition: opacity 0.1s;
+  z-index: 2;
+  width: 100%;
+  height: 600px;
+}
+
+.leftArrow {
+  grid-area: left-arrow;
+  width: 30%;
+  height: 10%;
+  place-self: center;
+}
+
+.rightArrow {
+  grid-area: right-arrow;
+  width: 15%;
+  height: 10%;
+  place-self: center;
+}
+
+.carousel {
+  grid-area: carousel;
+  overflow-x: hidden;
+}
+
+.closeButton {
+  grid-area: close;
+  justify-self: end;
+  width: 30%;
+  height: 40%;
+}
+
+.modal {
+  overflow: hidden;
+}

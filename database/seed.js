@@ -1,4 +1,5 @@
 const path = require('path');
+const faker = require('faker');
 const mongoose = require('mongoose');
 const Room = require('./Room.js');
 
@@ -25,8 +26,8 @@ for (let i = 0; i < 100; i += 1) {
   const samplePics = [];
   for (let j = 0; j < 7 + Math.floor(Math.random() * 10); j += 1) {
     const samplePic = {
-      imageUrl: path.resolve(__dirname, `../assets/picture${lastPic}.jpg`),
-      description: `fake image description for room ${i}, picture ${j}`,
+      imageUrl: `https://picsum.photos/id/${lastPic}/900/900`,
+      description: faker.lorem.sentence(7),
       verified: lastVerified,
     };
     lastVerified = !lastVerified;

@@ -1,0 +1,21 @@
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "main main col1 col2";
+  background-color: black;
+}
+
+.main {
+  grid-area: main;
+  width: 100%;
+}
+
+.col1 {
+  grid-area: col1;
+  width: 100%;
+}
+
+.col2 {
+  grid-area: col2;
+  width: 100%;
+}
